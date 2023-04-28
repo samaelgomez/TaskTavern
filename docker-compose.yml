@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: app
+    build: ./backend
+    image: node_app
+    ports:
+      - "3000:3000"
+    environment:
+      - PG_DB=tasktavern
+      - PG_USER=samael
+      - PG_PASSWORD=samael
+      - PG_HOST=postgres
+    depends_on:
+      - postgres
+  
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=tasktavern
+      - POSTGRES_USER=samael
+      - POSTGRES_PASSWORD=samael
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
