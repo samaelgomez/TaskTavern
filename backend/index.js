@@ -1,10 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 require('dotenv').config();
 const cookieParser = require('cookie-parser')
 const bodyparser = require('body-parser');
 const sequelize = require('./utils/database');
 
 const app = express();
+
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
