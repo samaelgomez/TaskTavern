@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { MantineProvider } from '@mantine/core';
-import App from './App.jsx'
+import Home from './view/pages/Home.page';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
   <MantineProvider withGlobalStyles withNormalizeCSS>
     <MantineProvider>
-      <App />
+      <Home />
     </MantineProvider>
   </MantineProvider>
   // </React.StrictMode>,
