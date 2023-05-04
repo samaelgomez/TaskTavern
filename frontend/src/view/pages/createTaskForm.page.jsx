@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { useTaskSetter } from '../hooks/taskFetch';
+import { useCases, useTaskSetter } from '../hooks/taskFetch';
 
 const CreateTaskForm = ({ action }) => {
     const { trigger } = useTaskSetter({
-        type: "createTask"
+        type: useCases.createTask
     })
     const nameRef = useRef(null)
     const typeRef = useRef(null)
@@ -28,16 +28,16 @@ const CreateTaskForm = ({ action }) => {
         <div className="TaskForm">
             <input type="text" ref={nameRef} className="TaskForm-Input"></input>
             <section className="TaskForm-Section">
-                <label>Is Daily?</label>
+                <label>Daily task</label>
                 <input ref={dailyRef} type="checkbox" className="TaskForm-Input"></input>
             </section>
             <section className="TaskForm-Section">
-                <label>Is a Priority Task?</label>
+                <label>Priority task</label>
                 <input ref={priorityRef} type="checkbox" className="TaskForm-Input"></input>
             </section>
             <select ref={typeRef} className="TaskForm-Select">
-                <option value="standar">Normal</option>
-                <option value="time">Contrarreloj</option>
+                <option value="standard">Standard</option>
+                <option value="timed">Timed</option>
             </select>
 
             <button className="TaskForm-Submit" onClick={validateTask}>Create Task</button>

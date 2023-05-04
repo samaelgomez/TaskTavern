@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap");
+
+/* Main CSS */
+:root {
+    --main-bg-color: #0f1416;
+    --main-border-radius: 12px;
+    --elevation1: 0px 2px 4px 1px rgba(0, 0, 0, 0.38);
+    --font-secondary-color: #917b59;
+    --primary-color: rgba(130, 86, 23, 1);
+    --primary-color-hovered: rgba(129, 96, 49, 1);
+}
+
+.TaskTaverMainContainer {
+    background-image: url("https://cdn.discordapp.com/attachments/596285231066251265/1093852372771553321/DeanSpencer-Tavern-drivethrurpg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 94vh;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--font-secondary-color) #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(130, 86, 23, 1);
+    border-radius: 10px;
+}
+
+.title-32 {
+    font-family: "Almendra SC", serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 28px;
+    background: linear-gradient(180deg, #d7ae74 0%, #825617 82.29%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.simpleFont-16 {
+    font-family: "Antic Slab";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--font-secondary-color);
+}
+
+.periodicity-icon,
+.task-icon,
+.header-icon {
+    background-color: white;
+    width: 24px;
+    height: 24px;
+}
+
+/* Main CSS */
+
+/* Section CSS */
+.section-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 396px;
+    background: var(--main-bg-color);
+    width: 100%;
+    max-width: 345px;
+    border-radius: var(--main-border-radius);
+    padding: 1rem;
+    box-shadow: var(--elevation1);
+}
+
+.section-wrapper .wrapper-header {
+    width: 100%;
+    display: flex;
+    flex-flow: row no-wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loadingOrEmptyBody {
+    margin: 2rem 0rem;
+}
+
+/* Section CSS */
+
+/* TaskCard CSS */
+.taskPrioContainer {
+    margin: 2rem 0rem;
+}
+
+.taskCard {
+    display: flex;
+    padding: 4px;
+    flex-flow: row no-wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 282px;
+    height: 36px;
+    background: var(--main-bg-color);
+    cursor: pointer;
+}
+
+.taskCard:hover {
+    background-color: rgba(234, 234, 234, 0.1);
+}
+
+.prio {
+    border: 0.5px solid var(--font-secondary-color);
+    filter: drop-shadow(0px 0px 4px #d0b731);
+}
+
+.normalTask {
+    border-bottom: 1px solid var(--font-secondary-color);
+}
+
+.TaskSimpleInfoContainer {
+    display: flex;
+    gap: 8px;
+    flex-flow: row no-wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TaskRewardAndAdditionalInfo {
+    display: flex;
+    gap: 8px;
+    flex-flow: row no-wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskListBody {
+    display: flex;
+    flex-flow: column;
+    height: 196px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+/* TaskCard CSS */
+
+/* Button or main CSS */
+.primaryButton {
+    background: #825617;
+    border-radius: 6px;
+    color: #eaeaea;
+    font-family: "Antic Slab";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.primaryButton:hover {
+    background-color: var(--primary-color-hovered);
+}
+
+.med-button {
+    width: 120px;
+    height: 44px;
+}
+
+/* Sections Container */
+.SectionsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+    padding: 2rem;
+}

@@ -1,38 +1,34 @@
-import { useTaskGetter } from "../hooks/taskFetch"
-import CreateTaskForm from "./createTaskForm.page"
-
-<CreateTaskForm></CreateTaskForm>
+import { useCases, useTaskGetter } from "../hooks/taskFetch"
+import Container from "../components/containers";
+import { LoadingOrEmptySection, MakeTaskList } from "../components/cards/task.cards";
 
 const Home = () => {
     const { data, isValidating, error, mutate } = useTaskGetter({
-        type: "getTasks",
+        type: useCases.getTasks,
     })
-    console.log({ data, isValidating })
 
     return (
+        <div className="TaskTaverMainContainer">
+            <div className="MenuDialogContainer"></div>
+            <div className="SectionsContainer">
+                <Container containerTitle={"Missions"}></Container>
 
-        //Mission List
-        //...
+                <Container containerTitle={"Tasks"}>
+                    {isValidating || data.tasks.normalTasks.length == 0 || data.tasks.priorityTask.length == 0 ? (
+                        <LoadingOrEmptySection />
+                    ) : (
+                        <MakeTaskList tasks={data.tasks} />
+                    )}
+                    <input
+                        type="button"
+                        value="Add Task"
+                        className="primaryButton med"
+                    ></input>
+                </Container>
 
-        //TaskList
-        <div className="TaskListContainer">
-            {
-                isValidating
-                    ? "Loading..."
-                    : <div>
-                        Hola mira los logs
-                        {/* <Modal>
-                                <CreateTaskForm></CreateTaskForm>
-                            </Modal> */}
-                        <CreateTaskForm action={mutate}></CreateTaskForm>
-                        {/* <MakeTaskList tasks={data}></MakeTaskList> */}
-                    </div>
-            }
+                <Container containerTitle={"Party"}></Container>
+            </div>
         </div>
-
-        //Party
-        //...
-
     )
 }
 

@@ -4,8 +4,22 @@ const Task = require('../models/task');
 exports.getTasks = (req, res, next) => {
   Task.findAll()
     .then(tasks => {
+      let prioTask;
+      const indexOfThePriorityTask = tasks.findIndex((e) => {
+        return e.priority
+      })
+      if (indexOfThePriorityTask !== null || indexOfThePriorityTask !== undefined) {
+        prioTask = tasks.slice(indexOfThePriorityTask, indexOfThePriorityTask + 1)
+        tasks.splice(indexOfThePriorityTask, 1)
+      }
+      const result = {
+        normalTasks: [
+          ...tasks
+        ],
+        priorityTask: prioTask
+      }
       res.status(200).json({
-        tasks: tasks
+        tasks: result
       });
     })
     .catch(err => console.log(err));
