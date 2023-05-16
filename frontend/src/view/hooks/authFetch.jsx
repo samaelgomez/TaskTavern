@@ -3,6 +3,7 @@ import { SwrGetAdapter, SwrMutateAdapter } from "./serviceHook/swrAdapters";
 
 const useCases = {
     login: 'login',
+    register: 'register',
     logout: 'logout',
     getUserData: 'getUserData'
 };

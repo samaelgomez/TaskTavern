@@ -28,6 +28,21 @@ const AuthUseCases = {
             return false;
         }
     },
+    register: async (url, {
+        arg
+    }) => {
+        const result = await Service({
+            method: "POST",
+            url: BaseUrl,
+            data: JSON.stringify(arg)
+        })
+        if (!result.error) {
+            window.location.reload();
+            return true;            
+        } else {
+            return false;
+        }
+    },
     logout: () => {
         LocalStorageService.removeItem("Token");
         LocalStorageService.removeItem("User");

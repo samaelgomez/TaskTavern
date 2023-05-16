@@ -72,7 +72,7 @@ button:focus-visible {
   justify-content: space-between;
 }
 
-.LoginForm {
+.form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

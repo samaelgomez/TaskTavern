@@ -23,7 +23,7 @@ const CreateTaskForm = ({ action }) => {
     }
 
     return (
-        <div className="TaskForm">
+        <div className="form TaskForm">
             <input type="text" ref={nameRef} className="TaskForm-Input"></input>
             <section className="TaskForm-Section">
                 <label>Daily task</label>

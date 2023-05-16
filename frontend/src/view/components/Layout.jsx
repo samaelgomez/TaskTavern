@@ -2,11 +2,15 @@ import { useMantineColorScheme } from "@mantine/core";
 import { CustomModal } from "./containers/customModal.component";
 import CreateLoginForm from "../pages/createLoginForm.page";
 import { useAuthGetter, useAuthSetter, useCases } from "../hooks/authFetch";
+import CreateRegisterForm from "../pages/createRegisterForm.page";
 
 const Layout = ({ children }) => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-    const { trigger } = useAuthSetter({
+    const { trigger: loginTrigger } = useAuthSetter({
         type: useCases.login
+    })
+    const { trigger: registerTrigger } = useAuthSetter({
+        type: useCases.register
     })
     const { data, isValidating, error } = useAuthGetter({
         type: useCases.getUserData
@@ -16,14 +20,14 @@ const Layout = ({ children }) => {
         type: useCases.logout
     });
 
-    console.log(data, isValidating)
-
     const AuthNavBar = () => {
         return (<>
             <CustomModal title="Login Form" textButton="Login">
-                <CreateLoginForm trigger={trigger} />
+                <CreateLoginForm trigger={loginTrigger} />
             </CustomModal>
-            <button>Register</button>
+            <CustomModal title="Register Form" textButton="Register">
+                <CreateRegisterForm trigger={registerTrigger} />
+            </CustomModal>
         </>)
     }
 

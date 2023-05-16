@@ -14,7 +14,7 @@ const CreateLoginForm = ({ trigger }) => {
     }
 
     return (
-        <div className="LoginForm">
+        <div className="form LoginForm">
             <label>Email</label>
             <br/>
             <input type="text" ref={emailRef} className="LoginForm-Input"></input>
