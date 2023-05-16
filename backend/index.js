@@ -4,6 +4,7 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser')
 const bodyparser = require('body-parser');
 const sequelize = require('./utils/database');
+const router = require('./routes')
 
 const app = express();
 
@@ -21,14 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Test route
-app.get('/', (req, res, next) => {
-  res.send('Hello World');
-});
-
-// CRUD routes
-app.use('/users', require('./routes/users'));
-app.use('/tasks', require('./routes/tasks'));
+app.use(router);
 
 // Error handling
 app.use((error, req, res, next) => {

@@ -2,7 +2,11 @@ const Task = require('../models/task');
 
 // Get all tasks
 exports.getTasks = (req, res, next) => {
-  Task.findAll()
+  Task.findAll({
+    where: {
+      authorId: req.userData.id
+    }
+  })
     .then(tasks => {
       let prioTask;
       const indexOfThePriorityTask = tasks.findIndex((e) => {
@@ -45,6 +49,7 @@ exports.getTask = (req, res, next) => {
 // Create task
 exports.createTask = (req, res) => {
   const {
+    authorId,
     name,
     type,
     priority,
@@ -53,6 +58,7 @@ exports.createTask = (req, res) => {
   } = req.body;
 
   const taskData = {
+    authorId: authorId,
     name: name,
     type: type,
     priority: priority,
@@ -76,6 +82,7 @@ exports.createTask = (req, res) => {
 // Update task
 exports.updateTask = (req, res, next) => {
   const taskId = req.params.taskId;
+  const updatedAuthorId = req.params.authorId;
   const updatedName = req.body.name;
   const updatedType = req.body.type;
   const updatedPriority = req.body.priority;
@@ -90,6 +97,7 @@ exports.updateTask = (req, res, next) => {
         });
       }
       task.name = updatedName;
+      task.authorId = updatedAuthorId;
       task.type = updatedType;
       task.priority = updatedPriority;
       task.daily = updatedDaily;

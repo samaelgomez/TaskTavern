@@ -8,6 +8,7 @@ const Task = db.define('task', {
         allowNull: false,
         primaryKey: true
     },
+    authorId: Sequelize.INTEGER,
     name: Sequelize.STRING,
     type: Sequelize.STRING,
     priority: Sequelize.BOOLEAN,
