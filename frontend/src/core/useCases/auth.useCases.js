@@ -22,6 +22,7 @@ const AuthUseCases = {
                 armor: result.user.armor,
                 bag: result.user.bag
             })
+            window.location.reload();
             return true;
         } else {
             return false;
@@ -29,6 +30,8 @@ const AuthUseCases = {
     },
     logout: () => {
         LocalStorageService.removeItem("Token");
+        LocalStorageService.removeItem("User");
+        window.location.reload();
         return true;
     },
     getUserData: () => {

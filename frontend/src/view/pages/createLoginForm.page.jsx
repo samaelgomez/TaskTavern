@@ -21,7 +21,7 @@ const CreateLoginForm = ({ trigger }) => {
             <br/>
             <label>Password</label>
             <br/>
-            <input type="text" ref={passwordRef} className="LoginForm-Input"></input>
+            <input type="password" ref={passwordRef} className="LoginForm-Input"></input>
             <br/>
             <button className="LoginForm-Submit" onClick={validateLogin}>Login</button>
         </div>
