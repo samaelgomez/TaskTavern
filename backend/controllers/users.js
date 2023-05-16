@@ -55,7 +55,6 @@ exports.createUser = (req, res) => {
 
   User.create(userData)
     .then(result => {
-      console.log('Created User');
       res.status(201).json({
         message: 'User created successfully!',
         user: result
@@ -155,9 +154,8 @@ exports.login = async (req, res) => {
           maxAge: 1 * 24 * 60 * 60,
           httpOnly: true
         });
-        console.log("user", JSON.stringify(user, null, 2));
-        console.log(token);
-        return res.status(201).send(user);
+        const result = {user: user, token: token}
+        return res.status(201).send(result);
       } else {
         return res.status(401).send("Authentication failed");
       }

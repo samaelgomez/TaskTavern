@@ -103,6 +103,10 @@
     margin: 2rem 0rem;
 }
 
+.normalTasksContainer {
+    overflow-y: auto;
+}
+
 .taskCard {
     display: flex;
     padding: 4px;
@@ -142,14 +146,6 @@
     flex-flow: row no-wrap;
     justify-content: space-between;
     align-items: center;
-}
-
-.taskListBody {
-    display: flex;
-    flex-flow: column;
-    height: 196px;
-    overflow-y: auto;
-    margin-bottom: 1rem;
 }
 
 /* TaskCard CSS */

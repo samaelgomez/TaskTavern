@@ -4,10 +4,13 @@ const BaseUrl = "/tasks";
 
 const TaskUseCases = {
     getTasks: async () => {
-        return await Service({
+        const result = await Service({
             method: "GET",
             url: BaseUrl
         })
+        return result.error
+        ? {tasks: {normalTasks: [], priorityTask: []}, ...result}
+        : result
     },
     getTaskById: async (id) => {
         return await Service({
@@ -18,7 +21,6 @@ const TaskUseCases = {
     createTask: async (url, {
         arg
     }) => {
-        console.log(arg)
         return await Service({
             method: "POST",
             data: JSON.stringify(arg),

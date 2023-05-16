@@ -4,7 +4,7 @@ import {
 } from "@mantine/core";
 import { ModalsProvider } from '@mantine/modals';
 import { useState } from "react";
-import Home from './view/pages/Home.page';
+import Home from './view/pages/home.page';
 import Layout from './view/components/layout';
 import "./view/styles/index.css";
 

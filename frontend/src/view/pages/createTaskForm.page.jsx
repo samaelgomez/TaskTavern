@@ -15,8 +15,6 @@ const CreateTaskForm = ({ action }) => {
         const type = typeRef.current.value
         const daily = dailyRef.current.checked
         const priority = priorityRef.current.checked
-        //valida que el contenido del form de la task es ok
-        //....
 
         trigger({
             name: name, type: type, daily: daily, priority: priority, completed: false
@@ -40,7 +38,7 @@ const CreateTaskForm = ({ action }) => {
                 <option value="timed">Timed</option>
             </select>
 
-            <button className="TaskForm-Submit" onClick={validateTask}>Create Task</button>
+            <button className="TaskForm-Submit" onClick={validateTask}>Add task</button>
         </div>
     )
 }

@@ -1,20 +1,26 @@
-import { Group, ActionIcon, useMantineColorScheme } from "@mantine/core";
+import { useMantineColorScheme } from "@mantine/core";
+import { CustomModal } from "./containers/customModal.component";
+import CreateLoginForm from "../pages/createLoginForm.page";
+import { useAuthSetter, useCases } from "../hooks/authFetch";
 
 const Layout = ({ children }) => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-    
+    const { trigger } = useAuthSetter({
+        type: useCases.login,
+    })
+
     return (
         <>
-            <Group px={20} sx={{ height: "6vh", width: "100vw" }} position="apart">
-                Task Tavern
-                <ActionIcon
-                    variant="default"
-                    onClick={() => toggleColorScheme()}
-                    size={30}
-                >
-                    {colorScheme === "dark" ? "Light" : "Dark"}
-                </ActionIcon>
-            </Group>
+            <div className="mainHeader">
+                <span className="navTitle">TaskTavern</span>
+                <div className="rightHeaderSection">
+                    <CustomModal title="Login Form" textButton="Login">
+                        <CreateLoginForm trigger={trigger}/>
+                    </CustomModal>
+                    <button>Register</button>
+                    <button onClick={() => toggleColorScheme()}>{colorScheme === "dark" ? "Light" : "Dark"}</button>
+                </div>
+            </div>
             {children}
         </>
     );

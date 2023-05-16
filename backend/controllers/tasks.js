@@ -68,7 +68,6 @@ exports.createTask = (req, res) => {
 
   Task.create(taskData)
     .then(result => {
-      console.log('Created Task');
       res.status(201).json({
         message: 'Task created successfully!',
         task: result
