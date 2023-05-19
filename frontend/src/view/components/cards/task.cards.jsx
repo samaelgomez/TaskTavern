@@ -2,12 +2,13 @@ import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import CreateTaskForm from "../../pages/createTaskForm.page"
 import { useCases, useTaskGetter } from "../../hooks/taskFetch";
+import { GiNotebook } from "react-icons/gi";
 
 const TaskPrioCard = ({ name, reward }) => {
     return (
         <div className="taskCard prio taskPrioContainer">
             <div className="TaskSimpleInfoContainer">
-                <div className="task-icon"></div>
+                <div className="task-icon"><GiNotebook/></div>
                 <div className="simpleFont-16">{name}</div>
             </div>
             <div className="TaskRewardAndAdditionalInfo">
@@ -22,7 +23,7 @@ const TaskNormalCard = ({ name, reward, action }) => {
     return (
         <div className="taskCard normalTask" onClick={action}>
             <div className="TaskSimpleInfoContainer">
-                <div className="task-icon"></div>
+                <div className="task-icon"><GiNotebook/></div>
                 <div className="simpleFont-16">{name}</div>
             </div>
             <div className="TaskRewardAndAdditionalInfo">

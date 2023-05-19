@@ -1,7 +1,7 @@
 import AuthUseCases from "../../core/useCases/auth.useCases";
 import { SwrGetAdapter, SwrMutateAdapter } from "./serviceHook/swrAdapters";
 
-const useCases = {
+const authUseCases = {
     login: 'login',
     register: 'register',
     logout: 'logout',
@@ -26,4 +26,4 @@ const useAuthSetter = ({ type }) => {
     return { trigger }
 }
 
-export { useAuthGetter, useAuthSetter, useCases }
+export { useAuthGetter, useAuthSetter, authUseCases }

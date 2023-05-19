@@ -1,23 +1,25 @@
 import { useMantineColorScheme } from "@mantine/core";
 import { CustomModal } from "./containers/customModal.component";
 import CreateLoginForm from "../pages/createLoginForm.page";
-import { useAuthGetter, useAuthSetter, useCases } from "../hooks/authFetch";
+import { useAuthGetter, useAuthSetter, authUseCases } from "../hooks/authFetch";
 import CreateRegisterForm from "../pages/createRegisterForm.page";
 
 const Layout = ({ children }) => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const { trigger: loginTrigger } = useAuthSetter({
-        type: useCases.login
+        type: authUseCases.login
     })
+
     const { trigger: registerTrigger } = useAuthSetter({
-        type: useCases.register
+        type: authUseCases.register
     })
+
     const { data, isValidating, error } = useAuthGetter({
-        type: useCases.getUserData
+        type: authUseCases.getUserData
     });
     
     const { trigger: logoutTrigger } = useAuthSetter({
-        type: useCases.logout
+        type: authUseCases.logout
     });
 
     const AuthNavBar = () => {

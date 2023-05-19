@@ -15,6 +15,7 @@ const AuthUseCases = {
         if (!result.error && result.token) {
             LocalStorageService.setItem("Token", result.token)
             LocalStorageService.setItem("User", {
+                id: result.user.id,
                 name: result.user.name,
                 avatar: result.user.avatar,
                 level: result.user.level,

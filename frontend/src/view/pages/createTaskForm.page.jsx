@@ -1,10 +1,16 @@
 import { useRef } from 'react';
 import { useCases, useTaskSetter } from '../hooks/taskFetch';
+import { authUseCases, useAuthGetter } from '../hooks/authFetch';
 
 const CreateTaskForm = ({ action }) => {
     const { trigger } = useTaskSetter({
         type: useCases.createTask
     })
+
+    const { data, isValidating, error } = useAuthGetter({
+        type: authUseCases.getUserData
+    });
+
     const nameRef = useRef(null)
     const typeRef = useRef(null)
     const dailyRef = useRef(null)
@@ -17,7 +23,7 @@ const CreateTaskForm = ({ action }) => {
         const priority = priorityRef.current.checked
 
         trigger({
-            name: name, type: type, daily: daily, priority: priority, completed: false
+            authorId: data.id, name: name, type: type, daily: daily, priority: priority, completed: false
         })
         action('/tasks - getTasks')
     }

@@ -1,6 +1,7 @@
 import { useCases, useTaskGetter } from "../hooks/taskFetch"
 import Container from "../components/containers";
 import { LoadingOrEmptySection, MakeTaskList } from "../components/cards/task.cards";
+import MemberCard from "../components/cards/party.cards";
 
 const Home = () => {
     const { data, isValidating, error, mutate } = useTaskGetter({
@@ -26,7 +27,9 @@ const Home = () => {
                     ></input>
                 </Container>
 
-                <Container containerTitle={"Party"}></Container>
+                <Container containerTitle={"Party"} sectionClassname="partyWrapper">
+                    <MemberCard name={"Maquein [LV 1]"}/>
+                </Container>
             </div>
         </div>
     )
